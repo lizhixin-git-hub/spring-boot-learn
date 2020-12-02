@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.atguigu.spring.boot</groupId>
+    <artifactId>spring-boot-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!--
+       湖南运政接口配置：
+       地址：http://218.76.40.69:8282/face/resource
+       appId:TEST(测试)  CSWX（线上）
+       licenseKey：C73110A5F96CFD64BF553CAA73C1A9B0（测试） 3F4D2FBF322172E666666806A80A1460（线上）
+   -->
+
+    <modules>
+        <module>spring-boot-scheduling</module>
+        <module>distributed-lock</module>
+        <module>excel-annotation</module>
+        <module>elastic-search</module>
+        <module>sharding-jdbc</module>
+        <module>atomikos</module>
+        <module>dynamic-data-source</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.boot-version>2.3.3.RELEASE</spring.boot-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring-boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring.boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+
+                <!-- 指定jdk -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <skip>true</skip>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+
+                <!-- 跳过测试 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M4</version>
+                    <configuration>
+                        <skip>true</skip>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

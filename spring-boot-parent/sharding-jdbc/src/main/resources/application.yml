@@ -1,0 +1,117 @@
+server:
+  port: 8086
+
+spring:
+  main:
+    #设置一个实体类对应两张表（Course对应course_1、course_2），不配置则运行出错
+    allow-bean-definition-overriding: true
+  #sharding-jdbc分片策略
+  shardingsphere:
+    #sql日志输出配置
+    props:
+      sql:
+        show: true
+    #设置数据源,水平分库、水平分表
+    datasource:
+      #数据源名称
+      names: m1,m2,m3
+      #数据源1的数据库配置
+      m1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #com.alibaba.druid.pool.DruidDataSource为url，com.zaxxer.hikari.HikariDataSource为jdbcUrl
+        url: jdbc:mysql://106.53.217.86:3306/edu-db-1?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+        username: root
+        password: Lzx1922026241@
+      m2:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #com.alibaba.druid.pool.DruidDataSource为url，com.zaxxer.hikari.HikariDataSource为jdbcUrl
+        url: jdbc:mysql://106.53.217.86:3306/edu-db-2?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+        username: root
+        password: Lzx1922026241@
+      m3:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #com.alibaba.druid.pool.DruidDataSource为url，com.zaxxer.hikari.HikariDataSource为jdbcUrl
+        url: jdbc:mysql://106.53.217.86:3306/user-db?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+        username: root
+        password: Lzx1922026241@
+    sharding:
+      #公共表配置
+      broadcast-tables: t_udict
+      #库分片策略(设置的是全局的，整个库中)
+      #default-database-strategy:
+      #inline:
+      #sharding-column: cid
+      #algorithm-expression: m$->{cid % 2 + 1}
+      # 这个地方注意：sharding-jdbc会根据名称去找本节点，所以写sql的时候，要写此节点的名称
+      tables:
+        t_udict:
+          #主键生成策略
+          key-generator:
+            #对应的数据库表的主键
+            column: dictid
+            #生成方式，雪花模式
+            type: SNOWFLAKE
+        #垂直分库策略，专库转表
+        t_user:
+          #库分片策略(设置的是局部的,表中的)
+          table-strategy:
+            inline:
+              sharding-column: user_id
+              algorithm-expression: t_user
+          actual-data-nodes: m$->{3}.t_user
+          #主键生成策略
+          key-generator:
+            #对应的数据库表的主键
+            column: user_id
+            #生成方式，雪花模式
+            type: SNOWFLAKE
+        course:
+          #库分片策略(设置的是局部的,表中的)
+          database-strategy:
+            inline:
+              sharding-column: user_id
+              algorithm-expression: m$->{user_id % 2 + 1}
+          # 表达式， 健康节点： 根据上一个节点找到此值， {1..2}为groovy语言，$会替换成{1..2}的一个值，数据库表是: t_student_1 , t_student_2
+          # 这个配置是告诉sharding有多少个表,单个库m1.course_$->{1..2}
+          actual-data-nodes: m$->{1..2}.course_$->{1..2}
+          #主键生成策略
+          key-generator:
+            #对应的数据库表的主键
+            column: cid
+            #生成方式，雪花模式
+            type: SNOWFLAKE
+          # 配置其分片策略和分片算法
+          table-strategy:
+            # 行表达式
+            inline:
+              # 配置sharding的计算列
+              sharding-column: cid
+              # 配置sharding的表达式,对应的n_id必须和sharding-column的值对应，否则报错
+              algorithm-expression: course_$->{cid % 2 + 1}
+      #主从复制配置
+      #master-slave-rules:
+        #别名
+        #ds0:
+          #主库
+          #master-data-source-name: m1
+          #从库
+          #slave-data-source-names: m2
+
+# mybatis
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  typeAliasesPackage: com.lzx.sharding.jdbc.entity
+  global-config:
+    db-config:
+      id-type: AUTO
+      capital-mode: true
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
