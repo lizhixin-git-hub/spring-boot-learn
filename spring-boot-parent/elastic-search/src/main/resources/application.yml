@@ -1,0 +1,10 @@
+server:
+  port: 8565
+
+#关闭thymeleaf的缓存
+spring:
+  thymeleaf:
+    cache: false
+  elasticsearch:
+    rest:
+      uris: http://106.53.217.86:9200
