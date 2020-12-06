@@ -6,6 +6,7 @@
 
     <groupId>com.atguigu.spring.boot</groupId>
     <artifactId>spring-boot-parent</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <!--

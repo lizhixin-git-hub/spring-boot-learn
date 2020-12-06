@@ -10,12 +10,12 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 @SpringBootTest
-public class SpringBootSchedulingApplicationTests {
+class SpringBootSchedulingApplicationTests {
 
     private ISysJobRepositoryService sysJobRepositoryService;
 
     @Resource
-    public void setSysJobRepositoryService(ISysJobRepositoryService sysJobRepositoryService) {
+    void setSysJobRepositoryService(ISysJobRepositoryService sysJobRepositoryService) {
         this.sysJobRepositoryService = sysJobRepositoryService;
     }
 
