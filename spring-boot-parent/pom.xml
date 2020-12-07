@@ -25,6 +25,7 @@
         <module>atomikos</module>
         <module>dynamic-data-source</module>
         <module>upload</module>
+        <module>spring-boot-shiro</module>
     </modules>
 
     <properties>
