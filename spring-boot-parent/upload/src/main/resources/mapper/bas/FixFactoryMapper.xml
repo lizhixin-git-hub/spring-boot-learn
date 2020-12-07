@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bas.FixFactoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bas.FixFactory">
+        <id column="ent_id" property="entId" />
+        <result column="unit_type" property="unitType" />
+        <result column="work_type_name" property="workTypeName" />
+        <result column="is_area_limit" property="isAreaLimit" />
+        <result column="is_limit_spot" property="isLimitSpot" />
+        <result column="cert_month_max" property="certMonthMax" />
+        <result column="fix_month_max" property="fixMonthMax" />
+        <result column="cert_issue_num" property="certIssueNum" />
+        <result column="cert_used_num" property="certUsedNum" />
+    </resultMap>
+
+</mapper>

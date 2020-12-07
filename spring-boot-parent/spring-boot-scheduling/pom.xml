@@ -53,6 +53,23 @@
             <version>1.1.23</version>
         </dependency>
 
+        <!--
+             如果是1.5.9则要使用以下添加依赖：
+             <dependency>
+              <groupId>org.quartz-scheduler</groupId>
+              <artifactId>quartz</artifactId>
+              <version>2.3.0</version>
+             </dependency>
+             <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-context-support</artifactId>
+             </dependency>
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+
         <!-- spring boot test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

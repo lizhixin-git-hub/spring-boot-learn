@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bas.VehicleTypeG24Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bas.VehicleTypeG24">
+        <result column="G24Code" property="G24Code" />
+        <result column="vehicle_type_code" property="vehicleTypeCode" />
+        <result column="vehicle_type_name" property="vehicleTypeName" />
+        <result column="fix_hour" property="fixHour" />
+        <result column="photo_num" property="photoNum" />
+        <result column="photo_gap" property="photoGap" />
+        <result column="fix_period" property="fixPeriod" />
+        <result column="fix_mil" property="fixMil" />
+        <result column="price" property="price" />
+        <result column="G24Name" property="G24Name" />
+    </resultMap>
+
+</mapper>

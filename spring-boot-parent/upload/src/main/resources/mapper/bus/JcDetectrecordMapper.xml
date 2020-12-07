@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bus.JcDetectrecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bus.JcDetectrecord">
+        <id column="detectSn" property="detectSn" />
+        <result column="dsId" property="dsId" />
+        <result column="dsName" property="dsName" />
+        <result column="detectType" property="detectType" />
+        <result column="detectDate" property="detectDate" />
+        <result column="client" property="client" />
+        <result column="vehicleNo" property="vehicleNo" />
+        <result column="plateColorCode" property="plateColorCode" />
+        <result column="vinNo" property="vinNo" />
+        <result column="vehicleBrandModel" property="vehicleBrandModel" />
+        <result column="registDate" property="registDate" />
+        <result column="vehicleType" property="vehicleType" />
+        <result column="overallSize" property="overallSize" />
+        <result column="engineNo" property="engineNo" />
+        <result column="travelMileage" property="travelMileage" />
+        <result column="fuelType" property="fuelType" />
+        <result column="steeringAxleAmount" property="steeringAxleAmount" />
+        <result column="detectLine" property="detectLine" />
+        <result column="busiType" property="busiType" />
+        <result column="transCertificateCode" property="transCertificateCode" />
+        <result column="trailerVehicleNo" property="trailerVehicleNo" />
+        <result column="trailerVehicleType" property="trailerVehicleType" />
+        <result column="productionDate" property="productionDate" />
+        <result column="vehicleBodyColor" property="vehicleBodyColor" />
+        <result column="driveType" property="driveType" />
+        <result column="vehicleSuspensionForm" property="vehicleSuspensionForm" />
+        <result column="trailerVehicleAxleAmount" property="trailerVehicleAxleAmount" />
+        <result column="engineModel" property="engineModel" />
+        <result column="compressIgnitEnginePower" property="compressIgnitEnginePower" />
+        <result column="ratedTorque" property="ratedTorque" />
+        <result column="ratedSpeedOfIgnit" property="ratedSpeedOfIgnit" />
+        <result column="driveWheelModel" property="driveWheelModel" />
+        <result column="totalWeight" property="totalWeight" />
+        <result column="vehicleHeight" property="vehicleHeight" />
+        <result column="frontTrack" property="frontTrack" />
+        <result column="vehicleLength" property="vehicleLength" />
+        <result column="busTypeLevel" property="busTypeLevel" />
+        <result column="truckBodyType" property="truckBodyType" />
+        <result column="driveAxleAmount" property="driveAxleAmount" />
+        <result column="driveAxleLoadMass" property="driveAxleLoadMass" />
+        <result column="totalWeightOfTractor" property="totalWeightOfTractor" />
+        <result column="shaftForm" property="shaftForm" />
+        <result column="lampSystem" property="lampSystem" />
+        <result column="seatCount" property="seatCount" />
+        <result column="mainVehicleAxleAmount" property="mainVehicleAxleAmount" />
+        <result column="overallSizeTrailer" property="overallSizeTrailer" />
+        <result column="farLightCanAdjust" property="farLightCanAdjust" />
+        <result column="carriageSsideboardHeight" property="carriageSsideboardHeight" />
+        <result column="parkAxle" property="parkAxle" />
+        <result column="ssideboardHeightTrailer" property="ssideboardHeightTrailer" />
+        <result column="detectTotalCount" property="detectTotalCount" />
+        <result column="createTime" property="createTime" />
+        <result column="licensePlateType" property="licensePlateType" />
+        <result column="mn" property="mn" />
+        <result column="vehicleSeries" property="vehicleSeries" />
+        <result column="popedom" property="popedom" />
+        <result column="chassisType" property="chassisType" />
+        <result column="isNewCar" property="isNewCar" />
+        <result column="vehicleUse" property="vehicleUse" />
+        <result column="isHeavy" property="isHeavy" />
+        <result column="isPassenger" property="isPassenger" />
+        <result column="brakeType" property="brakeType" />
+        <result column="driveStart" property="driveStart" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="country" property="country" />
+        <result column="passengersNum" property="passengersNum" />
+        <result column="isDoubleBuild" property="isDoubleBuild" />
+        <result column="wheelbase" property="wheelbase" />
+        <result column="qualityPercentage" property="qualityPercentage" />
+        <result column="loginMember" property="loginMember" />
+        <result column="onlineTime" property="onlineTime" />
+        <result column="offlineTime" property="offlineTime" />
+        <result column="weather" property="weather" />
+        <result column="atmosphere" property="atmosphere" />
+        <result column="temperature" property="temperature" />
+        <result column="humidity" property="humidity" />
+        <result column="pressure" property="pressure" />
+        <result column="isRoadTest" property="isRoadTest" />
+        <result column="isEmptyLoad" property="isEmptyLoad" />
+        <result column="leder" property="leder" />
+        <result column="outsider" property="outsider" />
+        <result column="bottomChecker" property="bottomChecker" />
+        <result column="authorizationer" property="authorizationer" />
+        <result column="evaluate" property="evaluate" />
+        <result column="isprint" property="isprint" />
+        <result column="isvisa" property="isvisa" />
+        <result column="status" property="status" />
+        <result column="ratifiedLoadCapacity" property="ratifiedLoadCapacity" />
+        <result column="issue" property="issue" />
+        <result column="unqualified" property="unqualified" />
+    </resultMap>
+
+</mapper>

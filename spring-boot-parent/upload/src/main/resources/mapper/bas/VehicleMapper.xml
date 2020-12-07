@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bas.VehicleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bas.Vehicle">
+        <id column="vehicle_id" property="vehicleId" />
+        <result column="card_no" property="cardNo" />
+        <result column="vehicle_company_id" property="vehicleCompanyId" />
+        <result column="ent_id" property="entId" />
+        <result column="licence_no" property="licenceNo" />
+        <result column="licence_color" property="licenceColor" />
+        <result column="vehicle_type_code" property="vehicleTypeCode" />
+        <result column="manage_licence" property="manageLicence" />
+        <result column="is_private" property="isPrivate" />
+        <result column="owner_name" property="ownerName" />
+        <result column="owner_address" property="ownerAddress" />
+        <result column="owner_phone" property="ownerPhone" />
+        <result column="owner_postcode" property="ownerPostcode" />
+        <result column="owner_fax" property="ownerFax" />
+        <result column="owner_email" property="ownerEmail" />
+        <result column="owner_area" property="ownerArea" />
+        <result column="oil_type" property="oilType" />
+        <result column="driver_name" property="driverName" />
+        <result column="engine_no" property="engineNo" />
+        <result column="under_pan_no" property="underPanNo" />
+        <result column="drive_type" property="driveType" />
+        <result column="engine_type" property="engineType" />
+        <result column="run_date" property="runDate" />
+        <result column="out_date" property="outDate" />
+        <result column="rated_power" property="ratedPower" />
+        <result column="rated_oil" property="ratedOil" />
+        <result column="lamp_num" property="lampNum" />
+        <result column="axes_num" property="axesNum" />
+        <result column="fix_finish_no" property="fixFinishNo" />
+        <result column="suspend_form" property="suspendForm" />
+        <result column="out_line_size" property="outLineSize" />
+        <result column="country" property="country" />
+        <result column="car_supplier" property="carSupplier" />
+        <result column="produce_area" property="produceArea" />
+        <result column="auto_color" property="autoColor" />
+        <result column="paint_no" property="paintNo" />
+        <result column="axes_distance" property="axesDistance" />
+        <result column="wheel_distance" property="wheelDistance" />
+        <result column="tyre_size" property="tyreSize" />
+        <result column="auto_character" property="autoCharacter" />
+        <result column="yingyun_no" property="yingyunNo" />
+        <result column="popedom" property="popedom" />
+        <result column="archives_date" property="archivesDate" />
+        <result column="old_mileage" property="oldMileage" />
+        <result column="ton" property="ton" />
+        <result column="seat" property="seat" />
+        <result column="empty_weight" property="emptyWeight" />
+        <result column="full_weight" property="fullWeight" />
+        <result column="status" property="status" />
+        <result column="create_date" property="createDate" />
+        <result column="create_by" property="createBy" />
+        <result column="create_type" property="createType" />
+        <result column="is_other_place" property="isOtherPlace" />
+        <result column="visa_date" property="visaDate" />
+        <result column="next_visa_date" property="nextVisaDate" />
+        <result column="grade_date" property="gradeDate" />
+        <result column="next_grade_date" property="nextGradeDate" />
+        <result column="visa_mil" property="visaMil" />
+        <result column="next_visa_mil" property="nextVisaMil" />
+        <result column="fix_period" property="fixPeriod" />
+        <result column="fix_mil" property="fixMil" />
+        <result column="sync_flag" property="syncFlag" />
+        <result column="reg_img" property="regImg" />
+        <result column="oper_cert_img" property="operCertImg" />
+        <result column="axe_num_img" property="axeNumImg" />
+        <result column="licence_img" property="licenceImg" />
+        <result column="bus_fix_level" property="busFixLevel" />
+        <result column="vehicle_industry_code" property="vehicleIndustryCode" />
+        <result column="vehicle_long" property="vehicleLong" />
+        <result column="vehicle_width" property="vehicleWidth" />
+        <result column="vehicle_high" property="vehicleHigh" />
+        <result column="remark" property="remark" />
+        <result column="is_Allot" property="isAllot" />
+        <result column="attribute" property="attribute" />
+        <result column="coronae" property="coronae" />
+        <result column="quality" property="quality" />
+        <result column="road" property="road" />
+        <result column="sync_ys_new_flag" property="syncYsNewFlag" />
+        <result column="sync_ys_edit_flag" property="syncYsEditFlag" />
+        <result column="sync_ys_del_flag" property="syncYsDelFlag" />
+        <result column="ys_vehicle_id" property="ysVehicleId" />
+        <result column="sync_plat_edit_flag" property="syncPlatEditFlag" />
+        <result column="sync_plat_del_flag" property="syncPlatDelFlag" />
+        <result column="sync_plat_new_flag" property="syncPlatNewFlag" />
+        <result column="vehicle_status" property="vehicleStatus" />
+        <result column="new_car" property="newCar" />
+        <result column="old_vehicleNo" property="oldVehicleno" />
+        <result column="old_vehicle_company" property="oldVehicleCompany" />
+        <result column="locked" property="locked" />
+        <result column="vin" property="vin" />
+        <result column="photo_num" property="photoNum" />
+        <result column="photo_gap" property="photoGap" />
+    </resultMap>
+
+</mapper>

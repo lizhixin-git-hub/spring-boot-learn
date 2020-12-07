@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bus.JcDetectsncreateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bus.JcDetectsncreate">
+        <id column="detectSnCreateid" property="detectSnCreateid" />
+        <result column="detectSn" property="detectSn" />
+        <result column="dsId" property="dsId" />
+        <result column="vehicleNo" property="vehicleNo" />
+        <result column="plateColorCode" property="plateColorCode" />
+        <result column="vinNo" property="vinNo" />
+        <result column="detectSnStatus" property="detectSnStatus" />
+        <result column="createTime" property="createTime" />
+        <result column="detectSn_province" property="detectsnProvince" />
+        <result column="checkcode" property="checkcode" />
+        <result column="dsId_province" property="dsidProvince" />
+    </resultMap>
+
+</mapper>

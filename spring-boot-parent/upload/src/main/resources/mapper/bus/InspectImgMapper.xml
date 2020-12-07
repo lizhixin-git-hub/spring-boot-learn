@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bus.InspectImgMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bus.InspectImg">
+        <id column="inspect_img_id" property="inspectImgId" />
+        <result column="inspect_id" property="inspectId" />
+        <result column="img" property="img" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+</mapper>

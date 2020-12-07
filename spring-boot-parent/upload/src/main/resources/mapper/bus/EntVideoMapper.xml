@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bus.EntVideoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bus.EntVideo">
+        <id column="ent_video_id" property="entVideoId" />
+        <result column="ent_id" property="entId" />
+        <result column="out_ip" property="outIp" />
+        <result column="out_port" property="outPort" />
+        <result column="user_name" property="userName" />
+        <result column="password" property="password" />
+        <result column="channel_num" property="channelNum" />
+        <result column="local_ip" property="localIp" />
+        <result column="net_type" property="netType" />
+        <result column="device_type" property="deviceType" />
+        <result column="is_encrypt" property="isEncrypt" />
+        <result column="camera_name" property="cameraName" />
+        <result column="is_fix_check" property="isFixCheck" />
+        <result column="plug_type" property="plugType" />
+    </resultMap>
+
+</mapper>

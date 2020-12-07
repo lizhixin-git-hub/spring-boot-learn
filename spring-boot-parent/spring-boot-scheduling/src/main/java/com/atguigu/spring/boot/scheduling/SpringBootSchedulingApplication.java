@@ -3,6 +3,7 @@ package com.atguigu.spring.boot.scheduling;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 转载：https://mp.weixin.qq.com/s/f7zzweNREGE10kLGHCIq_g
@@ -17,6 +18,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 查看spring-context这个jar包中org.springframework.scheduling.ScheduledTaskRegistrar这个类的源代码，发现可以通过改造这个类就能实现动态增删启停定时任务功能。
  */
 @SpringBootApplication
+@EnableScheduling
 @MapperScan("com.atguigu.spring.boot.scheduling.dao")
 public class SpringBootSchedulingApplication {
 

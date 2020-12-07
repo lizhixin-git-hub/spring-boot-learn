@@ -24,6 +24,7 @@
         <module>sharding-jdbc</module>
         <module>atomikos</module>
         <module>dynamic-data-source</module>
+        <module>upload</module>
     </modules>
 
     <properties>

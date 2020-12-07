@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bus.EntCostdetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bus.EntCostdetail">
+        <id column="ent_costdetail_id" property="entCostdetailId" />
+        <result column="ent_id" property="entId" />
+        <result column="cost_type" property="costType" />
+        <result column="amt" property="amt" />
+        <result column="cost_time" property="costTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="oper" property="oper" />
+        <result column="balance_salary" property="balanceSalary" />
+        <result column="billid" property="billid" />
+        <result column="ent_permit_fix_id" property="entPermitFixId" />
+        <result column="is_later_cost" property="isLaterCost" />
+        <result column="later_cost_succ_flag" property="laterCostSuccFlag" />
+        <result column="test_id" property="testId" />
+        <result column="fix_id" property="fixId" />
+        <result column="cost_failed_flag" property="costFailedFlag" />
+        <result column="licence_no" property="licenceNo" />
+        <result column="licence_color" property="licenceColor" />
+    </resultMap>
+
+</mapper>

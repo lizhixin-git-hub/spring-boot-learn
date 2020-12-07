@@ -1,0 +1,158 @@
+server:
+  port: 9090
+  connection-timeout: 5000ms
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  servlet:
+    context-path:
+
+# debug: true debug日志输出
+
+spring:
+  devtools:
+     restart:
+        enabled: true
+        additional-paths: src/main/java
+        #classpath目录下的WEB-INF文件夹内容修改不重启
+        #exclude: WEB-INF/**
+
+  #output:ansi:enabled: DETECT   彩色日志配置
+  datasource:
+    name: durid
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.25:3306/nn_vstp4_db?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: Ycxc@123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    #超过时间限制是否回收
+    removeAbandoned: true
+    #超过时间限制是否回收
+    removeAbandonedTimeout: 180
+    #关闭abanded连接时输出错误日志
+    logAbandoned: true
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    poolPreparedStatements: true
+    filters: stat,wall,slf4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+# druid 登录信息
+druid:
+  config:
+    user-name: root
+    password: root
+    url-mapping: /druid/*
+
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.ycxc.upload.entity
+  global-config:
+    banner: false
+    db-config:
+      #<!-- 可选参数AUTO->`0`("数据库ID自增")INPUT->`1`(用户输入ID")ID_WORKER->`2`("全局唯一ID")UUID->`3`("全局唯一ID")-->
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: UUID
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: NOT_NULL
+      #驼峰下划线转换
+      table-underline: true
+      #mp2.3+ 全局表前缀 mp_
+      #table-prefix: mp_
+      #刷新mapper 调试神器
+      #refresh-mapper: true
+      #数据库大写下划线转换
+      #capital-mode: true
+      # Sequence序列接口实现类配置
+      #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+      #逻辑删除配置（下面3个配置）
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+      #自定义填充策略接口实现
+      #meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
+  configuration:
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    #配置JdbcTypeForNull, oracle数据库必须配置
+    #jdbc-type-for-null: 'null'
+    #打印SQL的链接信息,第二种方法
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-prefix: mybatis.sql.
+
+
+logging:
+  config: classpath:log/logback.xml
+  path: log/spring-boot-logback
+  #打印SQL，也可： level: com:ycxc:shiro:mapper: 或 level: com.ycxc.shiro.mapper: debug 的yml格式 第一种方式打印SQL配置
+
+#异步线程池的配置
+async:
+  #线程池维护线程的最少数量
+  core-pool-size: 80
+  #线程池维护线程的最大数量
+  max-pool-size: 92
+  #线程池维护线程所允许的空闲时间
+  keep-alive-seconds: 100
+  #线程池所使用的缓冲队列
+  queue-capacity: 80
+  #配置线程池中的线程的名称前缀
+  thread-name-prefix: async-service-
+  #等待所有任务结束后再关闭线程池
+  wait-for-tasks-to-complete-on-shutdown: true
+
+#http请求配置
+http:
+  #最大连接数
+  max-total: 80
+  #并发数
+  default-max-per-route: 80
+  validate-after-inactivity: 1000
+  #从连接池中获取到连接的最长时间
+  connection-request-timeout: 5000
+  #创建连接的最长时间
+  connect-timeout: 10000
+  #数据传输的最长时间
+  socket-timeout: 20000
+  wait-time: 30000
+  idle-con-time: 3
+  retry-count: 3
+  stale-connection-check-enabled: true
+
+quartz:
+  upload:
+    #上传维修、检测企业
+    fix-and-inspect-ent-cron-expression: 0 51 17 * * ?
+    #上传运输企业
+    transportation-ent-cron-expression: 0 27 19 * * ?
+    #上传检测数据
+    inspect-data-cron-expression: 0 27 19 * * ?
+
+dc:
+  #数据中心上传企业路径
+  ent-url: http://192.168.1.26:50002/dcenterpriseproductvmts/bas-enterprise/saveOrUpdate
+  #数据中心上传检测数据路径
+  inspect-url: http://192.168.1.26:40006/dckafkaserver/kafka/saveJc
+  #数据中心上传数据登录路径
+  login-interface-url: http://192.168.1.26:50009/dcrole/bas-data-source/login
+  #数据上传登录配置
+  login:
+    #数据上传登录用户名
+    user-name: jc_nnwxjc
+    #数据上传登录密码
+    password: jc858522212554

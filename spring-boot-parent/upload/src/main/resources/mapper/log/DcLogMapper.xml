@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.log.DcLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.log.DcLog">
+        <id column="log_id" property="logId" />
+        <result column="request_parameters" property="requestParameters" />
+        <result column="upload_data_primary_key" property="uploadDataPrimaryKey" />
+        <result column="create_time" property="createTime" />
+        <result column="status" property="status" />
+        <result column="status_code" property="statusCode" />
+        <result column="upload_result" property="uploadResult" />
+        <result column="type" property="type" />
+        <result column="http_status" property="httpStatus" />
+    </resultMap>
+
+</mapper>

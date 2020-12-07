@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycxc.upload.mapper.bus.InspectMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ycxc.upload.entity.bus.Inspect">
+        <id column="test_id" property="testId" />
+        <result column="vehicle_id" property="vehicleId" />
+        <result column="ent_id" property="entId" />
+        <result column="work_station_id" property="workStationId" />
+        <result column="fix_rec_id" property="fixRecId" />
+        <result column="car_faty_id" property="carFatyId" />
+        <result column="if_full_load" property="ifFullLoad" />
+        <result column="isbigcar" property="isbigcar" />
+        <result column="lamp_high" property="lampHigh" />
+        <result column="car_new" property="carNew" />
+        <result column="full_wgt" property="fullWgt" />
+        <result column="inspect_mc" property="inspectMc" />
+        <result column="start_time" property="startTime" />
+        <result column="inspect_time" property="inspectTime" />
+        <result column="inspect_date" property="inspectDate" />
+        <result column="inspect_num" property="inspectNum" />
+        <result column="inspect_times" property="inspectTimes" />
+        <result column="inspect_judge_name" property="inspectJudgeName" />
+        <result column="factory_no" property="factoryNo" />
+        <result column="license" property="license" />
+        <result column="first_inspect" property="firstInspect" />
+        <result column="inspect_judge" property="inspectJudge" />
+        <result column="grade" property="grade" />
+        <result column="license_clr" property="licenseClr" />
+        <result column="yingyun_no" property="yingyunNo" />
+        <result column="power_no" property="powerNo" />
+        <result column="underpan_no" property="underpanNo" />
+        <result column="unit_name" property="unitName" />
+        <result column="certificate_no" property="certificateNo" />
+        <result column="factory_name" property="factoryName" />
+        <result column="car_kind" property="carKind" />
+        <result column="out_date" property="outDate" />
+        <result column="run_date" property="runDate" />
+        <result column="car_seat" property="carSeat" />
+        <result column="oiltype_mc" property="oiltypeMc" />
+        <result column="car_color" property="carColor" />
+        <result column="popedom" property="popedom" />
+        <result column="drvtype_name" property="drvtypeName" />
+        <result column="front_lamp" property="frontLamp" />
+        <result column="axis_num" property="axisNum" />
+        <result column="drv_axis" property="drvAxis" />
+        <result column="handbrk_axis" property="handbrkAxis" />
+        <result column="isroad" property="isroad" />
+        <result column="checker1person" property="checker1person" />
+        <result column="checker2person" property="checker2person" />
+        <result column="checker3person" property="checker3person" />
+        <result column="leader_name" property="leaderName" />
+        <result column="hmo_indephi" property="hmoIndephi" />
+        <result column="createby" property="createby" />
+        <result column="hmo_turbo" property="hmoTurbo" />
+        <result column="chengyun" property="chengyun" />
+        <result column="dianpen" property="dianpen" />
+        <result column="organ" property="organ" />
+        <result column="modifydate" property="modifydate" />
+        <result column="inspect" property="inspect" />
+        <result column="is_visa" property="isVisa" />
+        <result column="sync_ds_flag" property="syncDsFlag" />
+        <result column="file_flag" property="fileFlag" />
+        <result column="sync_ys_new_flag" property="syncYsNewFlag" />
+        <result column="sync_ys_edit_flag" property="syncYsEditFlag" />
+        <result column="sync_ys_del_flag" property="syncYsDelFlag" />
+        <result column="sync_plat_edit_flag" property="syncPlatEditFlag" />
+        <result column="sync_plat_del_flag" property="syncPlatDelFlag" />
+        <result column="sync_plat_new_flag" property="syncPlatNewFlag" />
+        <result column="detect_sn" property="detectSn" />
+        <result column="checkcode" property="checkcode" />
+    </resultMap>
+
+</mapper>

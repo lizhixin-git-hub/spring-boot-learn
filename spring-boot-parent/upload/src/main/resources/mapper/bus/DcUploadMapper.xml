@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ycxc.upload.mapper.bus.DcUploadMapper" >
+    
+    <!-- 获取外检项目检测信息  -->
+    <select id="getJcAppearanceList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jca.uniqueness,
+        jca.faultitem,
+        jca.appearance,
+        jca.run,
+        jca.chassis,
+        jca.drivewheel1,
+        jca.drivewheel2,
+        jca.drivewheelg,
+        jca.doorscomplete,
+        jca.doorsholes,
+        jca.doorsseal,
+        jca.bodycracking,
+        jca.bodydefects,
+        jca.bodybroken,
+        jca.bodycoating,
+        jca.symmetrysfl,
+        jca.symmetrysfr,
+        jca.symmetrysbl,
+        jca.symmetrysbr,
+        jca.symmetryhhl,
+        jca.symmetryhbr,
+        jca.symmetrygbl,
+        jca.symmetrygbr,
+        jca.symmetryshl,
+        jca.symmetryshr,
+        jca.wheelamount,
+        jca.note,
+        jca.checker,
+        jca.checkNum
+        from jc_appearance as jca
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jca.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取制动时序时间数据 -->
+    <select id="getJcBrakewholebrakeseqtimeList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcbwst.axle1,
+        jcbwst.axle2,
+        jcbwst.axle3,
+        jcbwst.axle4,
+        jcbwst.axle5,
+        jcbwst.axle6,
+        jcbwst.evaluate
+        from jc_brakewholebrakeseqtime as jcbwst
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcbwst.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!--获取检验报告单-->
+    <select id="getJcDetectreportList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jdt.detectResult,
+        jdt.note
+        from jc_detectreport as jdt
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jdt.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!--获取单项检测-->
+    <select id="jcSingleitemList" parameterType="Map" resultType="Map">
+        select
+        jsm.itemCode,
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn
+        from jc_Singleitem as jsm
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jsm.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取性能检测数据基础信息 -->
+    <select id="getJcPerformanceDetectRecord" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        #{provinceDsId,jdbcType=VARCHAR} dsId,
+        jcd.dsName,
+        jcd.detectType,
+        jcd.detectDate,
+        jcd.client,
+        jcd.vehicleNo,
+        jcd.plateColorCode,
+        jcd.vinNo,
+        jcd.vehicleBrandModel,
+        jcd.registDate,
+        jcd.vehicleType,
+        jcd.overallSize,
+        jcd.engineNo,
+        jcd.travelMileage,
+        jcd.fuelType,
+        jcd.steeringAxleAmount,
+        jcd.detectLine,
+        jcd.busiType,
+        jcd.transCertificateCode,
+        jcd.trailerVehicleNo,
+        jcd.trailerVehicleType,
+        jcd.productionDate,
+        jcd.vehicleBodyColor,
+        jcd.driveType,
+        jcd.vehicleSuspensionForm,
+        jcd.trailerVehicleAxleAmount,
+        jcd.engineModel,
+        jcd.compressIgnitEnginePower,
+        jcd.ratedTorque,
+        jcd.ratedSpeedOfIgnit,
+        jcd.driveWheelModel,
+        jcd.totalWeight,
+        jcd.vehicleHeight,
+        jcd.frontTrack,
+        jcd.vehicleLength,
+        jcd.busTypeLevel,
+        jcd.truckBodyType,
+        jcd.driveAxleAmount,
+        jcd.driveAxleLoadMass,
+        jcd.totalWeightOfTractor,
+        jcd.shaftForm,
+        jcd.lampSystem,
+        jcd.seatCount,
+        jcd.mainVehicleAxleAmount,
+        jcd.overallSizeTrailer,
+        jcd.farLightCanAdjust,
+        jcd.carriageSsideboardHeight,
+        jcd.parkAxle,
+        jcd.ssideboardHeightTrailer,
+        jcd.detectTotalCount,
+        jcd.createTime,
+        jcd.licensePlateType,
+        jcd.mn,
+        jcd.vehicleSeries,
+        jcd.popedom,
+        jcd.chassisType,
+        jcd.isNewCar,
+        jcd.vehicleUse,
+        jcd.isHeavy,
+        jcd.isPassenger,
+        jcd.brakeType,
+        jcd.driveStart,
+        jcd.manufacturer,
+        jcd.country,
+        jcd.passengersNum,
+        jcd.isDoubleBuild,
+        jcd.wheelbase,
+        jcd.qualityPercentage,
+        jcd.loginMember,
+        jcd.onlineTime,
+        jcd.offlineTime,
+        jcd.weather,
+        jcd.atmosphere,
+        jcd.temperature,
+        jcd.humidity,
+        jcd.pressure,
+        jcd.isRoadTest,
+        jcd.isEmptyLoad,
+        jcd.leder,
+        jcd.outsider,
+        jcd.bottomChecker,
+        jcd.authorizationer,
+        jcd.evaluate,
+        jcd.isprint,
+        jcd.isvisa,
+        jcd.status,
+        jcd.ratifiedLoadCapacity,
+        jcd.issue,
+        jcd.unqualified
+        from jc_detectrecord as jcd
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcd.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取动力记录数据  -->
+    <select id="getJcPowerList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcp.standardPower,
+        jcp.ratedSpeed,
+        jcp.loadingForce,
+        jcp.steadySpeed,
+        jcp.evaluate,
+        jcp.checkNum
+        from jc_power as jcp
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcp.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取燃料经济性记录数据 -->
+    <select id="getJcFueleconomyList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcf.speedFuelPerHundredKm,
+        jcf.measuredValue,
+        jcf.evaluate,
+        jcf.checkNum
+        from jc_fueleconomy as jcf
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcf.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取制动性原始数据单轴记录数据  -->
+    <select id="getJcBrakeinitdataList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcb.axleSerialNo,
+        jcb.leftHorizontalLoadWheel,
+        jcb.rightHorizontalLoadWheel,
+        jcb.axleLoadOfCompoundTable,
+        jcb.leftDynamicWheelLoad,
+        jcb.rightDynamicWheelLoad,
+        jcb.leftDriveBrakeForce,
+        jcb.rightDriveBrakeForce,
+        jcb.leftParkBrakeForce,
+        jcb.rightParkBrakeForce
+        from jc_brakeinitdata as jcb
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcb.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取制动性整车单车记录数据  -->
+    <select id="getJcBrakewholesinglevehicleList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcbw.horizontalWeight,
+        jcbw.wholeVehicleBrakeRate,
+        jcbw.parkBrakeRate,
+        jcbw.evaluate
+        from jc_brakewholesinglevehicle as jcbw
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcbw.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 获取制动性原始数据判定记录数据  -->
+    <select id="getJcBrakesingleaxleList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcbs.axleSerialNo,
+        jcbs.axleBrakeRate,
+        jcbs.brakeUnbalanceRate,
+        jcbs.leftMaxProcessDiff,
+        jcbs.rightMaxProce,
+        jcbs.leftRetardingForce,
+        jcbs.rightRetardingForce,
+        jcbs.evaluate
+        from jc_brakesingleaxle as jcbs
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcbs.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!-- 检验报告人工检验结果记录列表 -->
+    <select id="getJcManualtestresultList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcm.detectCls,
+        jcm.evaluate,
+        jcm.unqualifiedItem
+        from jc_manualtestresult as jcm
+         <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcm.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+         </where>
+     </select>
+     
+      <!-- 获取检验报告性能检验结果记录列表 -->
+    <select id="getJcPerformanceItemList" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcp.itemCode,
+        jcp.detectData,
+        jcp.standardValue,
+        jcp.unqualifiedItem,
+        jcp.evaluate
+        from jc_performanceitem as jcp
+         <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                   and jcp.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+         </where>
+     </select>
+     
+     <!-- 获取侧滑量数据 -->
+     <select id="getJcSteeringWheelList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcsw.checkNum,
+         jcsw.slipwheel1,
+         jcsw.slipwheel2,
+         jcsw.evaluate,
+         jcsw.evaluate1,
+         jcsw.evaluate2
+         from jc_steeringWheel as jcsw
+         <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcsw.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+         </where>
+     </select>
+     
+     <!-- 获取喇叭数据 -->
+     <select id="getJcSoundLevelList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcsl.checkNum,
+         jcsl.soundlevel,
+         jcsl.evaluate
+         from jc_soundLevel as jcsl
+         <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcsl.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+         </where>
+     </select>
+     
+     <!-- 获取制动性挂车、牵引车整车制动率记录数据 -->
+     <select id="getJcBrakewholevehicleserial1List" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcbwv.horizontalWeight,
+         jcbwv.vehicleBrakeRateTractor,
+         jcbwv.vehicleBrakeRateTrailer,
+         jcbwv.parkBrakeRate,
+         jcbwv.brakeCoordinateTime,
+         jcbwv.evaluate
+         from jc_brakewholevehicleserial1 as jcbwv
+         <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jcbwv.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+          </where>
+     </select>
+
+    <!-- 获取制动性挂车、牵引车整车制动率比记录数据 -->
+    <select id="getJcBrakewholevehicleserial2List" parameterType="Map" resultType="Map">
+        select
+        #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+        jcbwvs.brakeRateTractorTrain,
+        jcbwvs.brakeRateTrailerTrain,
+        jcbwvs.evaluate
+        from jc_brakewholevehicleserial2 as jcbwvs
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and">
+                <if test="detectSn != null">
+                    and jcbwvs.detectSn=#{detectSn,jdbcType=VARCHAR}
+                </if>
+            </trim>
+        </where>
+    </select>
+     
+     <!-- 获取制动时序数据  -->
+     <select id="getJcBrakewholebrakeseqList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcbws.axle1,
+         jcbws.axle2,
+         jcbws.axle3,
+         jcbws.axle4,
+         jcbws.axle5,
+         jcbws.axle6,
+         jcbws.evaluate
+         from jc_brakewholebrakeseq as jcbws
+          <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jcbws.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+          </where>
+     </select>
+     
+     <!-- 获取路试驻车制动记录信息 数据-->
+     <select id="getJcBrakeroadtestparkbrakeList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcbr.parkSlope,
+         jcbr.parkResult,
+         jcbr.evaluate
+         from jc_brakeroadtestparkbrake as jcbr
+           <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jcbr.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+           </where>
+     </select>
+     
+     <!-- 获取路试行车制动记录信息 数据-->
+     <select id="getJcBrakeroadtestdrivebrakeList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcbrt.initialVelocity,
+         jcbrt.laneWidth,
+         jcbrt.brakeDistance,
+         jcbrt.mfdd,
+         jcbrt.brakeStability,
+         jcbrt.brakeCoordinateTime,
+         jcbrt.evaluate,
+         jcbrt.roadTestChecker
+         from jc_brakeroadtestdrivebrake as jcbrt
+           <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jcbrt.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+           </where>
+     </select>
+     
+     <!-- 获取排放性汽油车记录数据 -->
+     <select id="getJcEmissiongasolinevehicleList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jce.highCo,
+         jce.highHc,
+         jce.highL,
+         jce.lowCo,
+         jce.lowHc,
+         jce.co5025,
+         jce.hc5025,
+         jce.no5025,
+         jce.co2540,
+         jce.hc2540,
+         jce.no2540,
+         jce.vmasCo,
+         jce.vmasHc,
+         jce.vmasNo,
+         jce.vmasHcNo,
+         jce.evaluate,
+         jce.exhaustChecker,
+         jce.exhaustCheckNum,
+         jce.airCoefficient,
+         jce.lowcoEvaluate,
+         jce.lowhcEvaluate,
+         jce.highcoEvaluate,
+         jce.highhcEvaluate,
+         jce.airEvaluate,
+         jce.co5025Evaluate,
+         jce.hc5025Evaluate,
+         jce.no5025Evaluate,
+         jce.cco2540Evaluate,
+         jce.hc2540Evaluate,
+         jce.no2540Evaluate,
+         jce.vmascoEvaluate,
+         jce.vmashcEvaluate,
+         jce.vmasnoEvaluate,
+         jce.vmashcnoEvaluate
+         from jc_emissiongasolinevehicle as jce
+         <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jce.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+           </where>
+     </select>
+     
+     <!-- 获取排放性柴油车记录数据 -->
+     <select id="getJcEmissiondieselvehicleList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jceds.ratio1,
+         jceds.ratio2,
+         jceds.ratio3,
+         jceds.ratioBalance,
+         jceds.smoke1,
+         jceds.smoke2,
+         jceds.smoke3,
+         jceds.smokeBalance,
+         jceds.ratio100,
+         jceds.ratio90,
+         jceds.ratio80,
+         jceds.maxWheelSidePower,
+         jceds.evaluate,
+         jceds.exhaustChecker,
+         jceds.exhaustCheckNum,
+         jceds.methods,
+         jceds.ratio4
+         from jc_emissiondieselvehicle as jceds
+           <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jceds.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+           </where>
+     </select>
+     
+     <!-- 获取悬架记录数据  -->
+     <select id="getJcSuspensionList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcs.axleType,
+         jcs.efficiencyOfLeftAxle,
+         jcs.efficiencyOfRightAxle,
+         jcs.absorbRateDifOfAxle,
+         jcs.evaluate,
+         jcs.checkNum
+         from jc_suspension as jcs
+           <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jcs.detectSn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+           </where>
+     </select>
+     
+     <!-- 获取前照灯数据 -->
+     <select id="getJcMainlampList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jcml.lampType,
+         jcml.nearLightLampHight,
+         jcml.farLightLampHight,
+         jcml.farLightStrong,
+         jcml.farLightVOffset,
+         jcml.farLightHOffset,
+         jcml.nearLightVOffset,
+         jcml.nearLightHOffset,
+         jcml.evaluate,
+         jcml.checkNum
+         from jc_mainlamp as jcml
+           <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jcml.detectsn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+              </trim>
+           </where>
+     </select>
+     
+     <!-- 获取检验工位照片信息 -->
+     <select id="getJcImageList" parameterType="Map" resultType="Map">
+         select
+         #{provinceDetectSn,jdbcType=VARCHAR} detectSn,
+         jci.imageUrl,
+         jci.type,
+         jci.imageType,
+         jci.base64Image,
+         jci.inpsectId
+         from jc_image as jci
+           <where>
+              <trim prefix="(" suffix=")" prefixOverrides="and">
+                  <if test="detectSn != null">
+                      and jci.detectsn=#{detectSn,jdbcType=VARCHAR}
+                  </if>
+                  and jci.type=0
+              </trim>
+           </where>
+     </select>
+     
+</mapper>
