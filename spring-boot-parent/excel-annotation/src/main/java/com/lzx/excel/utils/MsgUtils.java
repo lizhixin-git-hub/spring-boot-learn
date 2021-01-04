@@ -1,7 +1,6 @@
-package com.lzx.easy.poi.utils;
+package com.lzx.excel.utils;
 
-
-import com.lzx.easy.poi.vo.ResponseMsg;
+import com.lzx.excel.vo.ResponseMsg;
 
 public class MsgUtils {
 

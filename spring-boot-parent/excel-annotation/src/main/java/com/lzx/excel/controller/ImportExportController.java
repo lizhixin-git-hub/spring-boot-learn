@@ -1,10 +1,10 @@
-package com.lzx.easy.poi.controller;
+package com.lzx.excel.controller;
 
-import com.lzx.easy.poi.po.User;
-import com.lzx.easy.poi.utils.ExcelExportUtils;
-import com.lzx.easy.poi.utils.ExcelImportUtils;
-import com.lzx.easy.poi.utils.MsgUtils;
-import com.lzx.easy.poi.vo.ResponseMsg;
+import com.lzx.excel.entity.User;
+import com.lzx.excel.utils.ExcelExportUtils;
+import com.lzx.excel.utils.ExcelImportUtils;
+import com.lzx.excel.utils.MsgUtils;
+import com.lzx.excel.vo.ResponseMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

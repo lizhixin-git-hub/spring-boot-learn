@@ -1,4 +1,4 @@
-package com.lzx.easy.poi.utils;
+package com.lzx.excel.utils;
 
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;

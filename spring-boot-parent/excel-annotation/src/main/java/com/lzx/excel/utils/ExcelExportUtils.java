@@ -1,9 +1,9 @@
-package com.lzx.easy.poi.utils;
+package com.lzx.excel.utils;
 
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
-import com.lzx.easy.poi.enums.ExcelTypeEnum;
+import com.lzx.excel.enums.ExcelTypeEnum;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

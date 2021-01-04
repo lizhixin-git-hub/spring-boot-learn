@@ -1,4 +1,4 @@
-package com.lzx.easy.poi.enums;
+package com.lzx.excel.enums;
 
 public enum ExcelTypeEnum {
 

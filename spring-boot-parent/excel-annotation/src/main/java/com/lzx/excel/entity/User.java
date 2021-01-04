@@ -1,4 +1,4 @@
-package com.lzx.easy.poi.po;
+package com.lzx.excel.entity;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
 

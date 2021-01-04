@@ -1,4 +1,4 @@
-package com.lzx.easy.poi.vo;
+package com.lzx.excel.vo;
 
 public class ResponseMsg<T> {
 
