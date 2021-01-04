@@ -27,6 +27,7 @@
         <module>upload</module>
         <module>spring-boot-shiro</module>
         <module>security</module>
+        <module>easy-poi</module>
     </modules>
 
     <properties>
