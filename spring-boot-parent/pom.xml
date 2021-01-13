@@ -27,6 +27,7 @@
         <module>upload</module>
         <module>spring-boot-shiro</module>
         <module>security</module>
+        <module>parameter-validation</module>
     </modules>
 
     <properties>
