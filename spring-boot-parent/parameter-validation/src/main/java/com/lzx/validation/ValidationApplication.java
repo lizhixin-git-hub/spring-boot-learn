@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * https://mp.weixin.qq.com/s/Wq1pHIExP6WKUFMV5EJ_sg
+ * https://mp.weixin.qq.com/s/iXuR5RQNqVnz-JJtWJmLjA
  */
 @SpringBootApplication
 public class ValidationApplication {
