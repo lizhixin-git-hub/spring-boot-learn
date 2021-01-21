@@ -10,6 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+/**
+ * 自定义注解实现excel的导入与导出
+ */
 @RestController("tbUserController")
 @RequestMapping("/tbUser")
 public class TbUserController {
