@@ -1,6 +1,5 @@
 package com.lzx.distributed.lock.service.impl;
 
-import com.lzx.distributed.lock.exception.ServiceException;
 import com.lzx.distributed.lock.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
