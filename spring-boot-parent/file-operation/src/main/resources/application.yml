@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    username: root
+    password: Lzx1922026241@
+    url: jdbc:mysql://106.53.217.86:3306/lzx?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10000MB
+      max-request-size: 100000MB
+
+# mybatis
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  typeAliasesPackage: com.lzx.file.model
+  global-config:
+    db-config:
+      id-type: AUTO
+      capital-mode: true
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+upload:
+  path: ./upload/

@@ -28,6 +28,7 @@
         <module>spring-boot-shiro</module>
         <module>security</module>
         <module>parameter-validation</module>
+        <module>file-operation</module>
     </modules>
 
     <properties>
