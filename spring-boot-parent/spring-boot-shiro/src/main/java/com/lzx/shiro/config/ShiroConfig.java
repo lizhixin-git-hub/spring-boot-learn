@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -61,14 +63,25 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilterFactory(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
+
+        //自定义过滤器，使用new创建，用spring注入会使自定义过滤器先执行
+        //Map<String, Filter> filters = new HashMap<>();
+        //filters.put("oauth2", new OAuth2Filter());
+        //shiroFilter.setFilters(filters);
+
+        //需使用LinkedHashMap，形成过滤器顺序链
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 注意过滤器配置顺序不能颠倒
         // 配置过滤:不会被拦截的链接
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/userLogin/**", "anon");
         filterChainDefinitionMap.put("/**", "authc");
+
+        //filterChainDefinitionMap.put("/**", "oauth2");
+
         // 配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
         shiroFilterFactoryBean.setLoginUrl("/userLogin/unauth");
+
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
